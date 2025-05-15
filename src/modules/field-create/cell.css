@@ -1,0 +1,14 @@
+.cell {
+  height: 30px;
+  width: 30px;
+  margin: 3px;
+  border: 1px solid;
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.field {
+    display: grid;
+    grid-template-columns: repeat(10, auto);
+}
