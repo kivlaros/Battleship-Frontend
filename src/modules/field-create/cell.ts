@@ -22,10 +22,13 @@ export class Cell{
     eventHandler(){
         this.cellDOM.addEventListener('click',()=>{
             console.log(`Я клетка с координатами x:${this.coord.x} y:${this.coord.y}`)
-            if(this.parent.isValide(this.coord)){
-                this.parent.changeFild(this.coord)
-                this.value = 1
-                this.cellDOM.innerText = this.value.toString()
+            if(!this.parent.isFinish){
+                if(this.parent.isValide(this.coord)){
+                    this.parent.changeFild(this.coord)
+                    this.value = 1
+                    this.cellDOM.innerText = this.value.toString()
+                    this.cellDOM.style.backgroundColor = '#6c6c6c'
+                }
             }
         })
     }

@@ -1,13 +1,15 @@
 import './cell.css'
-import { Cell } from './Cell';
+import { Cell } from './cell';
 import { isValidShipPlacement } from '../../validation/validation';
 import type { Coord } from '../../types/types';
 
 export class FieldCreate{
+    isFinish: boolean
     field: number[][]
     parentDOM:HTMLElement;
     fieldDOM: HTMLElement;
     constructor(parentDOM:HTMLElement){
+        this.isFinish = false
         this.parentDOM = parentDOM
         this.field = this.generate10x10()
         console.log(this.field)
@@ -39,7 +41,8 @@ export class FieldCreate{
     changeFild(coord:Coord){
         console.log('chenge')
         this.field[coord.x][coord.y] = 1
-         console.log(this.field)
+        console.log(this.field)
+        if(isValidShipPlacement(this.field,true))this.isFinish=true
     }
     isValide(coord:Coord){
         const fieldString = JSON.stringify(this.field)
