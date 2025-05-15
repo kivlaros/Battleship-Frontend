@@ -1,6 +1,7 @@
 import './cell.css'
 import { Cell } from './Cell';
-
+import { isValidShipPlacement } from '../../validation/validation';
+import type { Coord } from '../../types/types';
 
 export class FieldCreate{
     field: number[][]
@@ -33,6 +34,18 @@ export class FieldCreate{
                 new Cell(this,this.fieldDOM,coord)
             }
         }
+    }
+
+    changeFild(coord:Coord){
+        console.log('chenge')
+        this.field[coord.x][coord.y] = 1
+         console.log(this.field)
+    }
+    isValide(coord:Coord){
+        const fieldString = JSON.stringify(this.field)
+        let arr = JSON.parse(fieldString)
+        arr[coord.x][coord.y] = 1
+        return isValidShipPlacement(arr,false)
     }
 }
 

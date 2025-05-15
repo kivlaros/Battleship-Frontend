@@ -22,12 +22,17 @@ export class Cell{
     eventHandler(){
         this.cellDOM.addEventListener('click',()=>{
             console.log(`Я клетка с координатами x:${this.coord.x} y:${this.coord.y}`)
+            if(this.parent.isValide(this.coord)){
+                this.parent.changeFild(this.coord)
+                this.value = 1
+                this.cellDOM.innerText = this.value.toString()
+            }
         })
     }
 }
 
 function renderContent(value:number,coord:Coord):string{
     return`
-        <div class="cell cell${coord.x}${coord.y}">${value}</div>
+        <div class="cell cell${coord.x}${coord.y}"></div>
     `
 }

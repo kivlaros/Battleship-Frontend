@@ -23,7 +23,7 @@ export function isValidShipPlacement(fieldArr: number[][],isFinal:boolean): bool
         sizeCounts[size] = (sizeCounts[size] || 0) + 1;
     });
 
-    console.log(sizeCounts)
+    if(ships.some(el=>el.length>4))return false
 
     // Сравниваем с ожидаемым количеством
     if(isFinal){
@@ -42,7 +42,6 @@ export function isValidShipPlacement(fieldArr: number[][],isFinal:boolean): bool
     for (const ship of ships) {
         if (!isShipValid(ship, occupied)) return false;
     }
-
     return true;
 }
 
