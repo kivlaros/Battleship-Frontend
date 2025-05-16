@@ -1,12 +1,14 @@
 import './style.css'
 import { MainMenu } from './modules/main-menu';
 import { Auth } from './modules/auth/auth';
+import { Connection } from './modules/connection/connection';
 
 class App{
   appDOM: HTMLElement;
   contentDOM: HTMLElement;
   mainMenu: MainMenu;
   auth: Auth;
+  connection: Connection
   constructor(){
     this.start()
     this.appDOM = document.getElementById('app') as HTMLElement;
@@ -14,6 +16,7 @@ class App{
     this.contentDOM = document.querySelector('.content') as HTMLElement;
     this.mainMenu = new MainMenu(this.contentDOM)
     this.auth = new Auth(this.contentDOM)
+    this.connection = new Connection(this.appDOM)
   }
   start(){
     console.log('start')
