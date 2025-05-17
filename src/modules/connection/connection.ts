@@ -7,13 +7,18 @@ export class Connection{
         this.parentDOM = selector
         this.render()
         this.connectionDOM = document.querySelector('.main_menu') as HTMLElement;
+        this.hideDisplay()
     }
     render(){
         console.log(this.parentDOM)
         this.parentDOM.insertAdjacentHTML('beforeend', renderContent());
     }
-    hide(){
-        this.connectionDOM.style.display = "none"
+    hideDisplay(){
+        if(this.connectionDOM.style.display=='none'){
+            this.connectionDOM.style.display ='flex'
+        }else{
+            this.connectionDOM.style.display = "none"
+        }
     }
 }
 

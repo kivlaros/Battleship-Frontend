@@ -1,7 +1,7 @@
 import { isValidShipPlacement } from "../validation/validation";
 import { fieldArr } from "../test";
 import { FieldCreate } from "./field-create/field-create";
-
+import socket from "./router";
 
 export class MainMenu{
     menuDOM:HTMLElement;
